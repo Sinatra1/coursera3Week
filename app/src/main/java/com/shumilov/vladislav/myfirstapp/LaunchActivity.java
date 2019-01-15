@@ -1,12 +1,12 @@
 package com.shumilov.vladislav.myfirstapp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class LaunchActivity extends AppCompatActivity {
     private EditText mEditView;
@@ -17,7 +17,7 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        mEditView = findViewById(R.id.editView);
+        mEditView = findViewById(R.id.textView);
         mButtonView = findViewById(R.id.buttonView);
     }
 
@@ -25,14 +25,20 @@ public class LaunchActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        if (mButtonView == null) {
+            return;
+        }
+
         mButtonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (TextUtils.isEmpty(mEditView.getText())) {
+                if (mEditView == null || TextUtils.isEmpty(mEditView.getText())) {
                     return;
                 }
 
-                Toast.makeText(LaunchActivity.this, mEditView.getText(), Toast.LENGTH_LONG).show();
+                Intent intent = SecondActivity.newIntent(LaunchActivity.this, mEditView.getText().toString());
+
+                startActivity(intent);
             }
         });
     }
