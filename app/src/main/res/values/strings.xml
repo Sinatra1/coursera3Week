@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MyFirstApp</string>
+    <string name="launch_enter_text">Введите текст</string>
+    <string name="launch_button_text">Нажмите</string>
+</resources>
