@@ -14,14 +14,24 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
         setContentView(R.layout.ac_single_fragment);
 
         if (savedInstanceState == null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            Fragment fragment = getFragment();
-
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainer, fragment)
-                    .addToBackStack(fragment.getClass().getName())
-                    .commit();
+            showFragment();
         }
+    }
+
+    protected void showFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = getFragment();
+
+        Fragment foundedFragment = fragmentManager.findFragmentByTag(fragment.getClass().getName());
+
+        if (foundedFragment != null) {
+            fragmentManager.popBackStack(foundedFragment.getId(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        }
+
+        fragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, fragment, fragment.getClass().getName())
+                .addToBackStack(fragment.getClass().getName())
+                .commit();
     }
 
     protected abstract Fragment getFragment();

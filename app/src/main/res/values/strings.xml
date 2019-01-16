@@ -7,4 +7,5 @@
     <string name="search">Поиск</string>
     <string name="exit">Выход</string>
     <string name="main_fragment_title">Главный фрагмент</string>
+    <string name="query_required">Поле поиска обязательно для заполнения</string>
 </resources>

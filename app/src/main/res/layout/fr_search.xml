@@ -7,8 +7,8 @@
     tools:context="com.shumilov.vladislav.myfirstapp.SecondActivity"
     style="@style/MyContainer">
 
-    <TextView
-        android:id="@+id/textView"
+    <EditText
+        android:id="@+id/etQuery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,13 +18,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <Button
-        android:id="@+id/buttonView"
+        android:id="@+id/btSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/second_button_text"
+        android:text="@string/search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/etQuery" />
 
 </android.support.constraint.ConstraintLayout>

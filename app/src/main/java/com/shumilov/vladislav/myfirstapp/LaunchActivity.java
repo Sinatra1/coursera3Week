@@ -1,26 +1,30 @@
 package com.shumilov.vladislav.myfirstapp;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class LaunchActivity extends SingleFragmentActivity {
 
-    private String currentFragmentId;
+    private String currentFragmentName;
 
     @Override
-    protected Fragment getFragment() {
-        if (currentFragmentId == null) {
-            currentFragmentId = MainFragment.class.getName();
+    protected @NonNull Fragment getFragment() {
+        if (currentFragmentName == null) {
+            currentFragmentName = MainFragment.class.getName();
         }
 
-        switch (currentFragmentId) {
-            
+        if (currentFragmentName.equals(PreferencesFragment.class.getName())) {
+            return PreferencesFragment.getInstance();
         }
 
-        return new MainFragment();
+        if (currentFragmentName.equals(SearchFragment.class.getName())) {
+            return SearchFragment.getInstance();
+        }
+
+        return MainFragment.getInstance();
     }
 
     @Override
@@ -33,7 +37,19 @@ public class LaunchActivity extends SingleFragmentActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, item.getTitle(), Toast.LENGTH_LONG).show();
+        switch (item.getItemId()) {
+            case R.id.exitAction:
+                finish();
+                break;
+            case R.id.preferencesAction:
+                currentFragmentName = PreferencesFragment.class.getName();
+                showFragment();
+                break;
+            case R.id.searchAction:
+                currentFragmentName = SearchFragment.class.getName();
+                showFragment();
+                break;
+        }
 
         return true;
     }
