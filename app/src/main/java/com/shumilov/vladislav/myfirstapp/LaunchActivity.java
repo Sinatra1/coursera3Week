@@ -1,17 +1,26 @@
 package com.shumilov.vladislav.myfirstapp;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends SingleFragmentActivity {
+
+    private String currentFragmentId;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_launch);
+    protected Fragment getFragment() {
+        if (currentFragmentId == null) {
+            currentFragmentId = MainFragment.class.getName();
+        }
+
+        switch (currentFragmentId) {
+            
+        }
+
+        return new MainFragment();
     }
 
     @Override

@@ -6,4 +6,5 @@
     <string name="preferences">Настройки</string>
     <string name="search">Поиск</string>
     <string name="exit">Выход</string>
+    <string name="main_fragment_title">Главный фрагмент</string>
 </resources>
