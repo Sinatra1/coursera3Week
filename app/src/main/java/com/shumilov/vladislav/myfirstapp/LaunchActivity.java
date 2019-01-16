@@ -1,45 +1,31 @@
 package com.shumilov.vladislav.myfirstapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class LaunchActivity extends AppCompatActivity {
-    private EditText mEditView;
-    private Button mButtonView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
-
-        mEditView = findViewById(R.id.textView);
-        mButtonView = findViewById(R.id.buttonView);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.launch_menu, menu);
 
-        if (mButtonView == null) {
-            return;
-        }
+        return super.onCreateOptionsMenu(menu);
+    }
 
-        mButtonView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mEditView == null || TextUtils.isEmpty(mEditView.getText())) {
-                    return;
-                }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this, item.getTitle(), Toast.LENGTH_LONG).show();
 
-                Intent intent = SecondActivity.newIntent(LaunchActivity.this, mEditView.getText().toString());
-
-                startActivity(intent);
-            }
-        });
+        return true;
     }
 }

@@ -4,27 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.shumilov.vladislav.myfirstapp.LaunchActivity"
-    style="@style/MyContainer">
+    tools:context="com.shumilov.vladislav.myfirstapp.LaunchActivity">
 
-    <EditText
-        android:id="@+id/textView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/launch_enter_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/launch_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        android:layout_height="match_parent"></FrameLayout>
 </android.support.constraint.ConstraintLayout>

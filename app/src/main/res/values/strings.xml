@@ -3,4 +3,7 @@
     <string name="launch_enter_text">Введите текст</string>
     <string name="launch_button_text">Нажмите</string>
     <string name="second_button_text">Откройте браузер</string>
+    <string name="preferences">Настройки</string>
+    <string name="search">Поиск</string>
+    <string name="exit">Выход</string>
 </resources>
